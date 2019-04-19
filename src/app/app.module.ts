@@ -1,16 +1,20 @@
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { ComponentsModule } from './components/components.module';
 import { CoreModule } from './core/core.module';
+import { MaterialModule } from './core/material.module';
 import { FirebaseModule } from './firebase/firebase.module';
 import { ServiceModule } from './service/service.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
+    BrowserModule,
+    MaterialModule,
     CoreModule,
     FirebaseModule,
     ServiceModule,
@@ -18,6 +22,8 @@ import { ServiceModule } from './service/service.module';
   ],
   providers: [
   ],
-  bootstrap: []
+  bootstrap: [
+    AppComponent
+  ]
 })
 export class AppModule { }
