@@ -1,7 +1,7 @@
 sudo: required
 language: node_js
 node_js:
-  - "10"
+  - "10.15.3"
 branches:
   only:
     - master
@@ -13,4 +13,4 @@ install:
 script:
   - ng build --prod
 after_success:
-  - firebase deploy --token $FIREBASE_TOKEN
+  - firebase deploy --token $FIREBASE_API_TOKEN
