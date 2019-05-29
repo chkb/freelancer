@@ -16,5 +16,5 @@ deploy:
   skip_cleanup: true
   provider: firebase
   token:
-    secure: tGZ7nnLFH5pKo4uf5TMWyQXDkQLWAeqWsBfdFyIRxoZCwZteNtBmsaAm+flsS8kNJZ567CRAZl5Za07B0ujPv9ulIc6eThc2g89iZnO+dFhDVKCg5JnUYf5WSI5HE48+32zYeyuhDVB5Q1bXs0c32Qt3zo5sFhKH4HMQjCIqtXabVaGVnpaz3HwWXH/AXiflOzzMr6kyplVdGpIOJzSBpwBX1K2k7qlfTLBcfjT0BFkVt/EYuPii8GCd4kOUiTRiItYizHxSQTaqOM9/c5erBQzlIgakf3SDZ5jExPrFrB8I4cZBDzgC/IBmaQgbl8mpLKJopv3EQ+LtRdE01OlJUtag3wkjk61CC7dMBqQNe6lwZbU1Gn5hYm6f/pecG9kC5C9qBayFOp5R4/wxgZpcyTQfen6JNetlMtemxWDK04gXRz0DQ24SjhFvaUqLUX5tnCWz/kTvMfSL0+jU+AOeoyJm7q/Rp+s2cFy+eiFvYAentklCzp7IC6IKYtnCyl1F93RQBhKXcHudRaLX5FY1lWA4YrVH+q4GwONaA6wqrfLG8Si7XK0ZMaY/sDbrc7IYatli4TKYmb/01GRVXbeGGmDn1O/qN7NVQ0Ag9Qrhte9nC9G4m4cBhutGyWWRpjCU2cnRxUVQe4XtUrmqazI0tTeYzvMw+9O2GIr7rDdcCZY=
-  project: "freelancer"
+    secure: $FIREBASE_TOKEN
+    project: "freelancer"
