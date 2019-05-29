@@ -3,17 +3,17 @@ addons:
   chrome: stable
 language: node_js
 node_js:
-- '10.0'
+  - "10.0"
 branches:
   only:
-  - master
+    - master
 before_script:
-- npm install -g @angular/cli
+  - npm install -g @angular/cli
 script:
-- npm install
-- ng build --prod
+  - npm install
+  - ng build --prod
 deploy:
   skip_cleanup: true
   provider: firebase
   token:
-    secure: MSY1391BsCgxQ20rm7ONRFUqMJ949+ClcilU+XhSV64ybb+zilJ40BCkx78o/Rf4UY9qdnThrUm/WafwuCfPYbXpnGhVCTrYoy0hHB9RB801wba412xIYiH1+iBzs3wHb0zoHSziHn1ianLRCp5S0NN6orlnN6UOAY47episXdR6X1HXaW/eEXHYQZTe1zBzM9SUlvCM+fqTJ6M0IQv5VwgECRNNMq+rYQdEyZFUdDi9ftLoG0/TmidzFlhnp4yuP+Nz7wS9xh/FLVU0e4i9uIc6TaJelL9Uk7u64oDfH/HOwBkeB1470B1Zu0hJyisSJHsiHZSTt4th/ZzXNpux9xEgeMj7vRVVQDQxzV9hLQR1XbIdwfa+5CpX/1ot7I862isAvoFnmV3T0uAMvdZhvy54E/4zGctg+LqZebztbgt+DcF2rXzorCg0BX5+U/jF8s+nokMFYz+gBBcQUcWXDuzR4hbO51tN2pSDGeNneKDfS6YZqTCgpe4/nLpjnJ1tzEcSTQY2ZXz8PDEVvZICK2bVydGcEzu+mNgU/nxduwix25ssNvVLqvp6T+d/ndeHK9Sewihp+Bvh7EPcMnb3XNThuvW48m8ixLwK6ASvbR4W3tnh82tAq8gsa63ljLCpmgm5QX8nb/giqmDz2Ul2d8OuROEvZtEn7VsEmiPFUN8=
+    secure: $FIREBASE_TOKEN
