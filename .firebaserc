@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "freelancer"
+    "default": "freelancer",
+    "freelancer": "freelancer-fe621"
   }
 }
