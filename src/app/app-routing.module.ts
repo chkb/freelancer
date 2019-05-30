@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { LoginComponent } from './components/login/login.component';
+import { SearchFreelancerComponent } from './components/freelancer/search-freelancer/search-freelancer.component';
+import { CreateFreelancerComponent } from './components/freelancer/create-freelancer/create-freelancer.component';
 
 const routes: Routes = [
   {
@@ -17,6 +19,16 @@ const routes: Routes = [
   {
     path: 'dashboard',
     component: DashboardComponent,
+    // canActivate: [AuthGuard]
+  },
+  {
+    path: 'freelancer/search',
+    component: SearchFreelancerComponent,
+    // canActivate: [AuthGuard]
+  },
+  {
+    path: 'freelancer/create',
+    component: CreateFreelancerComponent,
     // canActivate: [AuthGuard]
   }
 ];
