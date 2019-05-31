@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { LoginProviderService } from './core/login-provider.service';
+import { User } from './models/user';
 
 @Component({
   selector: 'app-root',
@@ -6,6 +8,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  user: User;
   links: any = [
     {
       url: 'dashboard',
@@ -21,6 +24,15 @@ export class AppComponent {
     }
   ];
 
-  constructor() {
+  constructor(
+    private loginProviderService: LoginProviderService
+  ) {
+    this.loginProviderService.user.subscribe(user => {
+      this.user = user;
+    });
+  }
+
+  logout(): void {
+    this.loginProviderService.signOut();
   }
 }

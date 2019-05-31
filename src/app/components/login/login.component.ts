@@ -1,98 +1,39 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
-import { Component, OnDestroy } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
 import { Subscription } from 'rxjs';
+
 import { LoginProviderService } from '../../core/login-provider.service';
 import { moveIn } from '../../core/router.animations';
 
 @Component({
     selector: 'app-login',
     templateUrl: './login.component.html',
-    styleUrls: ['./login.component.css'],
-    animations: [moveIn(),
-    trigger('active', [
-        state('inactive', style({
-            transform: 'scale(0.6)'
-        })),
-        state('active', style({
-            transform: 'scale(1.0)'
-        })),
-        transition('inactive => active', animate('1000ms ease-in')),
-        transition('active => inactive', animate('1000ms ease-out'))
-    ])],
-    // tslint:disable-next-line:use-host-property-decorator
-    host: { '[@moveIn]': '' }
+    styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnDestroy {
+export class LoginComponent implements OnInit, OnDestroy {
     private subcribtion: Subscription;
     lockstate = 'inactive';
-    constructor(private loginProvider: LoginProviderService,
-        private router: Router) {
-        this.toggleLock();
+    constructor(
+        private loginProvider: LoginProviderService,
+        private router: Router
+    ) {
     }
 
-    toggleLock(): void {
-        setInterval(() => {
-            this.lockstate = this.lockstate === 'active' ? 'inactive' : 'active';
-        }, 2000);
-    }
-
-    googleLogin() {
-        this.loginProvider.googleLogin();
-        this.navigateToList();
-    }
-
-    facebookLogin() {
-        this.loginProvider.facebookLogin();
-        this.navigateToList();
-    }
-
-    emailLogin(email: string, password: string) {
-        this.loginProvider.emailLogin(email, password);
-        this.navigateToList();
-    }
-
-    navigateToList(): void {
+    ngOnInit(): void {
         this.subcribtion = this.loginProvider.user.subscribe(res => {
             if (res && res.uid) {
-                if (this.isAdmin()) {
-                    this.gotoEventList();
-                } else if (this.isEventLeader()) {
-                    this.gotoPayoutList();
-                } else {
-                    this.gotoDashboard();
-                }
+                this.router.navigate([`/dashboard`]);
             }
         });
     }
 
-    isEventLeader() {
-        if (this.loginProvider.role === 'eventLeader') {
-            return true;
-        }
-
-        return false;
+    googleLogin() {
+        this.loginProvider.googleLogin();
     }
 
-    isAdmin() {
-        if (this.loginProvider.role === 'admin') {
-            return true;
-        }
-
-        return false;
-    }
-
-    gotoEventList(): void {
-        this.router.navigate([`/event/list`]);
-    }
-
-    gotoPayoutList(): void {
-        this.router.navigate([`/payout/list`]);
-    }
-
-    gotoDashboard(): void {
-        this.router.navigate([`/dashboard`]);
+    facebookLogin() {
+        this.loginProvider.facebookLogin();
     }
 
     ngOnDestroy(): void {

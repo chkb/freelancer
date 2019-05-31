@@ -9,8 +9,9 @@ export const environment = {
     authDomain: 'freelancer-fe621.firebaseapp.com',
     databaseURL: 'https://freelancer-fe621.firebaseio.com',
     projectId: 'freelancer-fe621',
-    storageBucket: '',
-    messagingSenderId: '235777370903'
+    storageBucket: 'freelancer-fe621.appspot.com',
+    messagingSenderId: '235777370903',
+    appId: '1:235777370903:web:2c82ce581f5e79c7'
   }
 };
 

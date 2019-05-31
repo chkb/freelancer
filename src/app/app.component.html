@@ -1,49 +1,52 @@
-<mat-toolbar color="primary">
-    <span>
-        Freelancer Database | BETA v.0.1
-    </span>
-    <span class="spacer">
-    </span>
-    <span>
-        <mat-menu #appMenu="matMenu">
-            <button mat-menu-item>Settings</button>
-            <button mat-menu-item>Help</button>
-            <button mat-menu-item>Logout</button>
-        </mat-menu>
+<div *ngIf="user">
+    <mat-toolbar color="primary">
+        <span>
+            Freelancer Database | BETA v.0.1
+        </span>
+        <span class="spacer">
+        </span>
+        <span>
+            <mat-menu #appMenu="matMenu">
+                <button mat-menu-item>Settings</button>
+                <button mat-menu-item>Help</button>
+                <button mat-menu-item
+                        (click)="logout()">Logout</button>
+            </mat-menu>
 
-        <button mat-icon-button
-                [matMenuTriggerFor]="appMenu">
-            <mat-icon>more_vert</mat-icon>
-        </button>
-    </span>
-</mat-toolbar>
-<mat-toolbar>
-    <span>
-        <button mat-button
-                [routerLink]="['/dashboard']"
-                routerLinkActive="active-link">
-            DASHBOARD
-        </button>
-    </span>
-    <span>
-        <button [routerLink]="['/freelancer/search']"
-                routerLinkActive="active-link"
-                mat-button>
-            FREELANCER SEARCH
-        </button>
-    </span>
-    <span>
-        <mat-menu #adminMenu="matMenu">
-            <button mat-menu-item
-                    [routerLink]="['/freelancer/create']"
-                    routerLinkActive="active-link">CREATE FREELANCER</button>
-        </mat-menu>
+            <button mat-icon-button
+                    [matMenuTriggerFor]="appMenu">
+                <mat-icon>more_vert</mat-icon>
+            </button>
+        </span>
+    </mat-toolbar>
+    <mat-toolbar>
+        <span>
+            <button mat-button
+                    [routerLink]="['/dashboard']"
+                    routerLinkActive="active-link">
+                DASHBOARD
+            </button>
+        </span>
+        <span>
+            <button [routerLink]="['/freelancer/search']"
+                    routerLinkActive="active-link"
+                    mat-button>
+                FREELANCER SEARCH
+            </button>
+        </span>
+        <span>
+            <mat-menu #adminMenu="matMenu">
+                <button mat-menu-item
+                        [routerLink]="['/freelancer/create']"
+                        routerLinkActive="active-link">CREATE FREELANCER</button>
+            </mat-menu>
 
-        <button mat-icon-button
-                [matMenuTriggerFor]="adminMenu">
-            ADMIN
-        </button>
-    </span>
-</mat-toolbar>
+            <button mat-icon-button
+                    [matMenuTriggerFor]="adminMenu">
+                ADMIN
+            </button>
+        </span>
+    </mat-toolbar>
+</div>
 
 <router-outlet></router-outlet>
